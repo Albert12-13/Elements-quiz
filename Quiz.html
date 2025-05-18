@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Quiz</title>
+    <style>
+        body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    transition: background 1s; 
+    background: #E6E6FA; /* light yellow */
+    color: white; /* Ensures text remains readable */
+}
+
+h1, #progress { 
+    color: #4B0082; /* Dark Violet */
+}
+
+footer { 
+    text-align: center; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin-top: 20px; 
+    color: #4B0082; /* Dark Violet */
+}
+
+        .container { 
+    width: 60%; 
+    margin: auto; 
+    padding: 20px; 
+    background: #4B0082; /* Light Violet */
+    border-radius: 10px; 
+}
+        .question { display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        button { padding: 10px; background-color: #3498db; color: white; border: none; cursor: pointer; margin-top: 10px; }
+        #progress { margin-bottom: 10px; }
+    </style>
+</head>
+<body onload="startQuiz()">
+    <h1>Find Your Element!</h1>
+    <div id="progress">Question 1 of 10</div>
+    <div class="container">
+        
+        <div class="question" id="q1">
+            <p>1. When facing a challenge, you tend to:</p>
+            <input type="radio" name="q1" value="fire"> Jump right in <br>
+            <input type="radio" name="q1" value="water"> Analyze first <br>
+            <input type="radio" name="q1" value="earth"> Stay calm and logical <br>
+            <input type="radio" name="q1" value="wind"> Consider multiple perspectives <br>
+            <button onclick="nextQuestion(1)">Next</button>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. Your ideal way to spend free time is:</p>
+            <input type="radio" name="q2" value="fire"> Adventure & action <br>
+            <input type="radio" name="q2" value="water"> Relaxing & deep thinking <br>
+            <input type="radio" name="q2" value="earth"> Crafting & nature <br>
+            <input type="radio" name="q2" value="wind"> Traveling & learning <br>
+            <button onclick="nextQuestion(2)">Next</button>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. In a group setting, you often:</p>
+            <input type="radio" name="q3" value="fire"> Take charge and motivate others <br>
+            <input type="radio" name="q3" value="water"> Connect emotionally and support friends <br>
+            <input type="radio" name="q3" value="earth"> Ensure stability and inclusion <br>
+            <input type="radio" name="q3" value="wind"> Bring fresh ideas and unpredictability <br>
+            <button onclick="nextQuestion(3)">Next</button>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. What drives you most in life?</p>
+            <input type="radio" name="q4" value="fire"> Passion and ambition <br>
+            <input type="radio" name="q4" value="water"> Meaning and connection <br>
+            <input type="radio" name="q4" value="earth"> Stability and loyalty <br>
+            <input type="radio" name="q4" value="wind"> Freedom and discovery <br>
+            <button onclick="nextQuestion(4)">Next</button>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Your biggest strength is:</p>
+            <input type="radio" name="q5" value="fire"> Courage and determination <br>
+            <input type="radio" name="q5" value="water"> Emotional intelligence <br>
+            <input type="radio" name="q5" value="earth"> Patience and reliability <br>
+            <input type="radio" name="q5" value="wind"> Creativity and curiosity <br>
+            <button onclick="nextQuestion(5)">Next</button>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. Which statement resonates with you the most?</p>
+            <input type="radio" name="q6" value="fire"> I thrive on competition and pushing limits <br>
+            <input type="radio" name="q6" value="water"> I flow with life and adapt effortlessly <br>
+            <input type="radio" name="q6" value="earth"> I trust in consistency and stability <br>
+            <input type="radio" name="q6" value="wind"> I embrace change and curiosity <br>
+            <button onclick="nextQuestion(6)">Next</button>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. What’s your ideal weather?</p>
+            <input type="radio" name="q7" value="fire"> Hot and dry, full of sunshine <br>
+            <input type="radio" name="q7" value="water"> A gentle rainy day, calming <br>
+            <input type="radio" name="q7" value="earth"> Crisp autumn air, steady <br>
+            <input type="radio" name="q7" value="wind"> Windy and unpredictable <br>
+            <button onclick="nextQuestion(7)">Next</button>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. Your favorite type of journey:</p>
+            <input type="radio" name="q8" value="fire"> Thrilling expedition, action-packed <br>
+            <input type="radio" name="q8" value="water"> Peaceful escape, deep thoughts <br>
+            <input type="radio" name="q8" value="earth"> Steady path, appreciating beauty <br>
+            <input type="radio" name="q8" value="wind"> Unpredictable adventure, discovery <br>
+            <button onclick="nextQuestion(8)">Next</button>
+        </div>
+
+                <div class="question" id="q9">
+            <p>9. Your ideal adventure?</p>
+            <input type="radio" name="q9" value="fire"> A thrilling, high-energy expedition <br>
+            <input type="radio" name="q9" value="water"> A peaceful, introspective journey <br>
+            <input type="radio" name="q9" value="earth"> A steady, meaningful path <br>
+            <input type="radio" name="q9" value="wind"> An unpredictable exploration <br>
+            <button onclick="nextQuestion(9)">Next</button>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. What do you value most?</p>
+            <input type="radio" name="q10" value="fire"> Passion and ambition <br>
+            <input type="radio" name="q10" value="water"> Connection and depth <br>
+            <input type="radio" name="q10" value="earth"> Stability and trust <br>
+            <input type="radio" name="q10" value="wind"> Freedom and discovery <br>
+            <button onclick="nextQuestion(10)">See Results</button>
+        </div>
+
+
+        <div id="result" class="question">
+            <h2>Your Element:</h2>
+            <p id="element-description"></p>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let scores = { fire: 0, water: 0, earth: 0, wind: 0 };
+
+        window.onload = function startQuiz() {
+    document.querySelectorAll(".question").forEach(q => q.style.display = "none");
+    document.getElementById("q1").style.display = "block"; // Ensure the first question is visible
+};
+
+        function nextQuestion(q) {
+    let selected = document.querySelector(`input[name="q${q}"]:checked`);
+    if (selected) {
+        scores[selected.value]++;
+        document.getElementById(`q${q}`).style.display = "none";
+
+        currentQuestion++;
+
+        if (currentQuestion <= 10) {
+            document.querySelectorAll(".question").forEach(q => q.style.display = "none"); // Hide all previous questions
+            document.getElementById(`q${currentQuestion}`).style.display = "block"; // Show next question
+            document.getElementById("progress").innerText = `Question ${currentQuestion} of 10`;
+        } else {
+            showResult();
+        }
+    } else {
+        alert("Please select an answer!");
+    }
+}
+
+        function showResult() {
+            let element = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            let descriptions = {
+                fire: "🔥 You are bold, passionate, and full of energy!",
+                water: "💧 You are intuitive, emotional, and deeply connected.",
+                earth: "🌿 You are grounded, dependable, and steady.",
+                wind: "🌬️ You are free-spirited, curious, and adventurous."
+            };
+
+            document.body.style.background = {
+                fire: "linear-gradient(to right, red, orange)",
+                water: "linear-gradient(to right, blue, cyan)",
+                earth: "linear-gradient(to right, green, lightgreen)",
+                wind: "linear-gradient(to right, gray, white)"
+            }[element];
+
+            document.getElementById("element-description").innerHTML = `<strong>${element.toUpperCase()}</strong><br>${descriptions[element]}`;
+
+document.getElementById("result").style.display = "block";
+
+}            
+
+function restartQuiz() {
+    currentQuestion = 1;
+    scores = { fire: 0, water: 0, earth: 0, wind: 0 };
+
+    // Reset background color
+    document.body.style.background = "#E6E6FA"; // Light Yellow
+
+    // Hide result page
+    document.getElementById("result").style.display = "none";
+
+    // Hide all questions first
+    document.querySelectorAll(".question").forEach(q => q.style.display = "none");
+
+    // Clear all radio button selections
+    document.querySelectorAll("input[type='radio']").forEach(input => input.checked = false);
+
+    // Show first question
+    document.getElementById("q1").style.display = "block";
+
+    // Reset progress indicator
+    document.getElementById("progress").innerText = "Question 1 of 10";
+}
+    </script>
+<footer>
+    <p>كيرمس ٢٠٢٥ - كشاف سورية الفرقة ٢٢</p>
+</footer>
+</body>
+</html>
